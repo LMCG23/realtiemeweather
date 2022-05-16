@@ -1,0 +1,61 @@
+ <div class="col-md-12 " >
+    <div class="continer-fluid" >
+        <div class="col-md-12 justify-conten-center"  >
+            <div class="row">
+               <form [formGroup]="wheaterForm">       
+                   <div class="input-group col-md-12">
+                   <input type="text" class="form-control" formControlName="city" placeholder="Type a city name to see the real time weather" aria-label="Recipient's username" aria-describedby="button-addon2">
+                   <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="getWeatherData()">Search</button>
+                   </div>          
+               </form>
+            </div>
+        </div>
+   </div>   
+ </div>   
+ <div class="container-fluid mt-4">
+    <div class="col-md-12">
+    
+        <div class="row">
+            <div class=" card">
+                <div class="row">
+            
+                      <h1>{{wheatherbyCity.name}}, {{ wheatherbyCity.sys ? wheatherbyCity.sys.country:'--'}} </h1> 
+            
+                <div class="col-md-6">
+                    
+                    <div >
+                        Temperature: {{wheatherbyCity.main.temp | number:'1.0-0'}}&#8451;
+    
+                    </div>
+                    <div >
+                        Humidity: {{wheatherbyCity.main.humidity | number:'1.0-0'}}%
+                    </div>
+                    <div class="col-md-6">
+                        Pressure : {{wheatherbyCity.main.pressure }}hPa
+                    </div>
+                </div>
+                <div class="col-md-6">
+                   
+                    <div >
+                        Max tem: {{wheatherbyCity.main.temp_max | number:'1.0-0'}}&#8451;
+    
+                    </div>
+                    <div >
+                        min temp: {{wheatherbyCity.main.temp_min | number:'1.0-0'}}&#8451;
+                    </div>
+                    <div class="col-md-6">
+                        Visibility : {{wheatherbyCity.visibility }}m
+                    </div>
+                </div>
+                <div class="row">
+                    <h1>Feels like {{wheatherbyCity.main.feels_like | number:'1.0-0'}}&#8451; {{wheatherbyCity.weather[0] ? wheatherbyCity.weather[0].description:'--' }}</h1>
+                </div>
+            </div>
+            </div>
+   
+        </div>
+    
+    
+    </div>
+ </div>
+
